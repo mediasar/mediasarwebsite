@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StudySar Pro</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --primary:#38bdf8;
+  --bg:#0f172a;
+  --card:#1e293b;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  background:linear-gradient(135deg,#0f172a,#020617);
+  color:white;
+}
+
+header{
+  display:flex;
+  justify-content:space-between;
+  padding:20px 40px;
+  position:sticky;
+  top:0;
+  background:rgba(0,0,0,0.4);
+  backdrop-filter:blur(10px);
+  z-index:10;
+}
+
+nav a{
+  margin:0 10px;
+  text-decoration:none;
+  color:white;
+  transition:0.3s;
+}
+
+nav a:hover{
+  color:var(--primary);
+}
+
+.hero{
+  text-align:center;
+  padding:100px 20px;
+}
+
+.hero h1{
+  font-size:42px;
+  margin-bottom:10px;
+}
+
+.hero p{
+  color:#cbd5f5;
+  margin-bottom:20px;
+}
+
+.btn{
+  padding:12px 25px;
+  border-radius:30px;
+  border:none;
+  background:var(--primary);
+  cursor:pointer;
+}
+
+.courses{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+  padding:40px;
+}
+
+.card{
+  background:var(--card);
+  padding:20px;
+  border-radius:15px;
+  transition:0.3s;
+  cursor:pointer;
+}
+
+.card:hover{
+  transform:translateY(-10px);
+  background:#334155;
+}
+
+.auth{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+}
+
+.auth-box{
+  background:var(--card);
+  padding:30px;
+  border-radius:15px;
+  width:300px;
+  text-align:center;
+}
+
+.auth-box input{
+  width:100%;
+  padding:10px;
+  margin:10px 0;
+  border:none;
+  border-radius:8px;
+}
+
+.auth-box button{
+  width:100%;
+  padding:10px;
+  background:var(--primary);
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+footer{
+  text-align:center;
+  padding:20px;
+  color:#94a3b8;
+}
+
+.modal{
+  display:none;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.7);
+  justify-content:center;
+  align-items:center;
+}
+
+.modal-content{
+  background:var(--card);
+  padding:30px;
+  border-radius:15px;
+  text-align:center;
+}
+</style>
+</head>
+
+<body>
+
+<!-- AUTH -->
+<div id="auth" class="auth">
+  <div class="auth-box">
+    <h2 id="title">Login</h2>
+    <input id="user" placeholder="Username">
+    <input id="pass" type="password" placeholder="Password">
+    <button onclick="handleAuth()">Masuk</button>
+    <p onclick="toggleMode()" style="cursor:pointer;margin-top:10px;">Belum punya akun?</p>
+  </div>
+</div>
+
+<!-- APP -->
+<div id="app" style="display:none;">
+
+<header>
+  <h2>StudySar</h2>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#courses">Materi</a>
+  </nav>
+  <button onclick="logout()">Logout</button>
+</header>
+
+<section class="hero">
+  <h1>Belajar Lebih Cerdas 🚀</h1>
+  <p>Platform belajar modern</p>
+  <button class=
